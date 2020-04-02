@@ -1,0 +1,264 @@
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: Helvetica,"PingFang SC","Microsoft YaHei", sans-serif;
+    
+}
+img{
+    width: 100%;
+}
+
+:root{
+    --primary-color:#ffdd43;
+    --secondary-color:#e3e3e3;
+    --text-color-lightest:#e7e9ec;
+    --text-color-darker:#2e2e2e;
+    --text-color-dark:#494949;
+    --text-color-grary:#8b8b8b;
+    --text-color-dark-gray:#727272;
+    --text-color-light-gray:#c6c6c6;
+    --backdrop-color:rgba(42,42,42,0.69);
+}
+
+header{
+    width: 100%;
+    height: 80px;
+    display: grid;
+    padding: 0 40px;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    position: relative;
+    z-index: 200;
+}
+.logo{
+    font-size: 24px;
+    font-weight:600;
+    color:var(--text-color-grary);
+}
+header nav{
+    justify-self: end;
+}
+header nav i{
+color:var(--text-color-lightest);
+}
+header nav a{
+    color:var(--text-color-lightest);
+    text-decoration: none;
+    margin: 0 24px;
+}
+header .burger{
+    display: none;
+}
+
+header.sticky{
+    position: fixed;
+    background-color: white;
+    box-shadow: 0 0 18px rgba(0,0,0,0.2);
+    animation: dropDown 0.5s ease-in-out forwards;
+    
+}
+header.sticky .logo,
+header.sticky nav a,
+header.sticky nav i{
+    color: var(--text-color-darker);
+}
+
+@keyframes dropDown{
+    from{
+        transform: translateY(-100px);
+    }
+    to{
+        transform: translateY(0);
+    }
+}
+
+.glide{
+    position: relative;
+    top: -80px;
+    z-index: 50;
+}
+.glide__slide img,
+.glide__slide video{
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+}
+.slide-caption{
+    position: absolute;
+    z-index:70;
+    color: var(--text-color-lightest);
+    text-align: center;
+    max-width: 60vw;
+}
+.glide__slide{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.slide-caption h1{
+    font-size: 54px;
+    font-weight: 600;
+}
+.slide-caption h3{
+    font-size: 24px;
+    margin: 48px 0;
+}
+.slide-caption > * {
+    opacity: 0;
+}
+.backdrop{
+    background: var(--backdrop-color);
+    position: absolute;
+    z-index: 60;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    opacity: 0.5;
+
+}
+/* 具体内容区域 */
+/* 通用样式 */
+.content-wrapper{
+    margin-top:40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+section{
+    display: grid;
+    justify-items: center;
+    max-width: 1180px;
+    padding: 0 80px;
+}
+
+.title1{
+    font-size: 34px;
+    color:var(--text-color-darker);
+}
+.title1::after{
+    content: "";
+    display: block;
+    width: 80%;
+    height: 4px;
+    background-color: var(--primary-color);
+    margin-top: 14px;
+    transform: translateX(10%);
+}
+.intro{
+    margin:20px 0 40px 0;
+    font-size: 18px;
+    color: var(--text-color-dark-gray);
+}
+/* ———————————————————————————————————— */
+
+
+.photos{
+    position: relative;
+    z-index: 50;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr ;
+    grid-template-rows: 1fr 1fr ;
+    column-gap: 1vw ;
+    row-gap: 1vh;
+}
+
+.photo{
+   
+   object-fit: cover;
+   transition: 0.4s;
+   box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.25);
+}
+.photo::before{
+    content: "";
+    height: 100%;
+    width: 100%;
+    background: var(--backdrop-color);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    opacity: 0.1;
+}
+
+.photo:hover{
+    transform: translateY(-20px) scale(1.5);
+    box-shadow: 0px 0px 36px rgba(0,0,0,0.1);
+    
+}
+
+
+
+
+footer{
+    margin-top: 124px;
+    padding-bottom: 16px;
+    background-color: var(--text-color-darker);
+
+}
+.record-info{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    justify-items: center;
+}
+
+.footer-menus a{
+    font-size: 15px;
+    align-items: center;
+    text-decoration: none;
+    padding: 10px;
+    color: white;
+}
+
+/* 数据部分 */
+.data-section{
+    max-width: unset;
+    width: 100vw;
+    height: 255px;
+    background-image: url(images/adult-business-computer-contemporary-380769.jpg);
+    background-size: cover;
+    background-position: center;
+
+    display: grid;
+    grid-template-columns: repeat(4,minmax(auto,220px));
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 20;
+}
+.data-section::before{
+    content: "";
+    display: block;
+    position: absolute;
+    background-color: var(--backdrop-color);
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+.data-piece{
+    width: 250px;
+    display: grid;
+    grid-template-rows: repeat(3,1fr);
+    justify-items: center;
+    color: white;
+    position: relative;
+    z-index: 40;
+
+}
+.data-piece i.fas{
+font-size: 44px;
+}
+.data-piece .num{
+    margin-top: 7px;
+    font-size: 41px;
+    font-weight: 600;
+}
+
+.test{
+    width: 100px;
+    height: 100px;
+    background-color: black;
+}
