@@ -1,3 +1,17 @@
+var app=new Vue({
+    el:'#app',
+    data:{
+        photos:[
+            {src:"images/activity01-image.jpg"},
+            {src:"images/activity01-image.jpg"},
+            {src:"images/activity01-image.jpg"},
+            {src:"images/activity01-image.jpg"},
+            {src:"images/activity01-image.jpg"},
+            {src:"images/activity01-image.jpg"}
+        ]
+    }
+})
+
 const headerEl=document.querySelector("header");
 window.addEventListener("scroll",()=>{
     let height=headerEl.getBoundingClientRect().height;
@@ -72,3 +86,4 @@ window.addEventListener("scroll",()=>{
         dataSectionEl.style.backgroundPosition=`center calc(50% - ${bottom/3}px)`;
     }
 });
+

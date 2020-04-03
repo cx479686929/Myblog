@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="libs/scrollReveal/scrollreveal.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.css">
     <link rel="stylesheet" href="libs/glide/glide.core.min.css">
     <link rel="stylesheet" href="libs/glide/glide.theme.min.css">
@@ -69,8 +70,13 @@
         <section class="photography">
             <h2 class="title1">摄影</h2>
              <p class="intro">稍微拍一拍照片</p>
-            <div class="photos">
-                <div class="photo">
+            <div class="photos" id="app">
+                
+                    <div class="photo" v-for="photo in photos" >
+                        <img :src=photo.src alt="">
+                    </div>
+        
+                <!-- <div class="photo">
                     <img src="images/activity01-image.jpg" alt="">
                 </div>
                  <div class="photo">
@@ -87,7 +93,8 @@
                 </div>
                 <div class="photo">
                     <img src="images/activity01-image.jpg" alt="">
-                </div>
+                </div> -->
+
             </div>
         </section>
         
@@ -132,8 +139,7 @@
             <h2 class="title1">胡思乱想</h2>
             <p class="intro">稍微想一想 巴拉巴拉巴拉</p>
             <div class="ideas">
-                
-               
+             
             </div>
         </section>
         
