@@ -5,6 +5,7 @@ import com.cx.mylogserver.mysqlHelper.serverimpl.IdeasServiceImpl;
 import com.cx.mylogserver.mysqlHelper.serverimpl.PhotosServiceImpl;
 import com.cx.mylogserver.mysqlHelper.service.IdeasService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,6 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class mylogController {
     @Autowired
     private ArticleServiceImpl articleService;
@@ -24,7 +26,7 @@ public class mylogController {
     public Map<String,Object> getAllphotos(){
         Map<String, Object> map = new HashMap<>();
         map.put("code","200");
-        map.put("hello",photosService.getphotoList());
+        map.put("photos",photosService.getphotoList());
         return map;
     }
     @RequestMapping("/getAllIdeas")
