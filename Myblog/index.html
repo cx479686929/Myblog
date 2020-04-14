@@ -16,10 +16,10 @@
     <header>
         <div class="logo">浩瀚星辰</div>
         <nav>
-            <a href="">首页</a>
-            <a href="">摄影</a>
-            <a href="">博客</a>
-            <a href="">胡思乱想</a>
+            <a href="#">首页</a>
+            <a href="#photography">摄影</a>
+            <a href="#articles">博客</a>
+            <a href="#ideas">胡思乱想</a>
             <a href="">关于我</a>
             <i class="fas fa-search"></i>
         </nav>
@@ -67,13 +67,13 @@
     </div>
 
     <div class="content-wrapper" >
-        <section class="photography">
+        <section id="photography" class="photography">
             <h2 class="title1">摄影</h2>
              <p class="intro">稍微拍一拍照片</p>
             <div class="photos" id="app">
                 
                     <div class="photo" v-for="photo in photos" >
-                        <img :src=photo.src alt="">
+                        <img :src=photo.purl alt="" >
                     </div>
         
                 <!-- <div class="photo">
@@ -101,7 +101,7 @@
     </div>
 
     <div class="content-wrapper" >
-        <section class="photography">
+        <section id="articles" class="articles">
             <h2 class="title1">博客</h2>
              <p class="intro">稍微写一写文章</p>
             <div class="articles">
@@ -135,7 +135,7 @@
     </section>
     
     <div class="content-wrapper" >
-        <section class="photography">
+        <section id="ideas" class="ideas">
             <h2 class="title1">胡思乱想</h2>
             <p class="intro">稍微想一想 巴拉巴拉巴拉</p>
             <div class="ideas">
@@ -152,6 +152,8 @@
 
     <script src="libs/anime//anime.min.js"></script>
     <script src="libs/glide/glide.min.js"></script>
+    <script src="libs/smooth-scroll/smooth-scroll.polyfills.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="index.js"></script>
     
     

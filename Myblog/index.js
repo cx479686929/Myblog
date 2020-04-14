@@ -1,15 +1,29 @@
 var app=new Vue({
     el:'#app',
     data:{
-        photos:[
-            {src:"images/activity01-image.jpg"},
-            {src:"images/activity01-image.jpg"},
-            {src:"images/activity01-image.jpg"},
-            {src:"images/activity01-image.jpg"},
-            {src:"images/activity01-image.jpg"},
-            {src:"images/activity01-image.jpg"}
-        ]
+        photos:[{},{},{},{},{},{}]
+    },
+
+    mounted(){
+        this.getJoke();
+        ScrollReveal().reveal('.photo',{reset: true})
+    },
+    methods:{
+        getJoke:function(){
+            const that=this;
+            axios.get("http://127.0.0.1:8080/getAllPhotos").then(
+                function(response){
+                    console.log(response.data);
+                    console.log(response.data['photos']);
+                    that.photos=response.data['photos'];
+                },
+                function(err){}
+            )
+        }
     }
+
+
+
 })
 
 const headerEl=document.querySelector("header");
@@ -59,7 +73,7 @@ const staggeringOption = {
     origin:"bottom"
 };
 
-ScrollReveal().reveal(".photo",{ ...staggeringOption, interval:350});
+ScrollReveal().reveal(".photo",{ ... staggeringOption, interval:350});
 
 const dataSectionEl=document.querySelector(".data-section");
 ScrollReveal().reveal(".data-section",{ 
@@ -87,3 +101,7 @@ window.addEventListener("scroll",()=>{
     }
 });
 
+const scroll = new SmoothScroll('nav a[href*="#"], .scrollToTop a[href*="#"]',{
+    header:"header",
+    offset:80
+});
