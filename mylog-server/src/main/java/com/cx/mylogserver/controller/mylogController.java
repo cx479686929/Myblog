@@ -31,10 +31,14 @@ public class mylogController {
     }
     @RequestMapping("/getAllIdeas")
     public String getAllIdeas(){
+
         return ideasService.getIdeasList().toString();
     }
     @RequestMapping("/getAllArticles")
-    public String getAllArticles(){
-        return articleService.getArticlesList().toString();
+    public Map<String,Object> getAllArticles(){
+        Map<String, Object> map = new HashMap<>();
+        map.put("code","200");
+        map.put("articles",articleService.getArticlesList());
+        return map;
     }
 }
