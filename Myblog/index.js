@@ -1,5 +1,5 @@
 var app=new Vue({
-    el:'#app',
+    el:'#photoapp',
     data:{
         photos:[{},{},{},{},{},{}]
     },
@@ -11,7 +11,7 @@ var app=new Vue({
     methods:{
         getJoke:function(){
             const that=this;
-            axios.get("http://127.0.0.1:8080/getAllPhotos").then(
+            axios.get("http://192.168.1.4:8080/getAllPhotos").then(
                 function(response){
                     console.log(response.data);
                     console.log(response.data['photos']);
@@ -24,7 +24,35 @@ var app=new Vue({
 
 
 
+});
+var app=new Vue({
+    el:'#articleapp',
+    data:{
+        articles:[]
+    },
+
+    mounted(){
+        this.getJoke();
+    },
+    methods:{
+        getJoke:function(){
+            const that=this;
+            axios.get("http://192.168.1.4:8080/getAllArticles").then(
+                function(response){
+                    console.log(response.data);
+                    console.log(response.data['articless']);
+                    that.articles=response.data['articles'];
+                },
+                function(err){}
+            )
+        }
+    }
+
+
+
 })
+
+
 
 const headerEl=document.querySelector("header");
 window.addEventListener("scroll",()=>{

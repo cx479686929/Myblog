@@ -70,7 +70,7 @@
         <section id="photography" class="photography">
             <h2 class="title1">摄影</h2>
              <p class="intro">稍微拍一拍照片</p>
-            <div class="photos" id="app">
+            <div class="photos" id="photoapp">
                 
                     <div class="photo" v-for="photo in photos" >
                         <img :src=photo.purl alt="" >
@@ -104,8 +104,11 @@
         <section id="articles" class="articles">
             <h2 class="title1">博客</h2>
              <p class="intro">稍微写一写文章</p>
-            <div class="articles">
-
+            <div class="articles" id="articleapp">
+                <div class="article" v-for="article in articles">
+                    <a href="http://www.baidu.com" class="articletitle" v-text=article.aname></a>
+                    <div class="articledate" v-text=article.adate></div>
+                </div>
                
             </div>
         </section>
